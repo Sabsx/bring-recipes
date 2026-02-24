@@ -35,7 +35,6 @@ HTML_TEMPLATE = """<!doctype html>
 
   <div class="btnrow">
     <a class="btn" href="{bring_link}">🛒 In Bring! importieren</a>
-    <a class="btn" href="../">← zurück</a>
   </div>
 
     {hero_img}
