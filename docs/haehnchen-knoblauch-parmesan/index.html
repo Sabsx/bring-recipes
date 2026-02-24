@@ -3,35 +3,261 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hähnchen in Parmesan-Sahnesauce</title>
+  <title>Hähnchen–Knoblauch–Parmesan</title>
+  <meta name="description" content="Hähnchen–Knoblauch–Parmesan (privates Rezept)">
 
+  <!-- ✅ Bring!-Import: JSON-LD Recipe (nicht anfassen außer Inhalt) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Recipe",
-    "name": "Hähnchen in Parmesan-Sahnesauce",
+    "name": "Hähnchen–Knoblauch–Parmesan",
     "recipeYield": "2 Portionen",
     "recipeIngredient": [
       "2 Hähnchenbrust",
+      "2 Knoblauchzehen",
       "200 ml Sahne",
       "80 g Parmesan",
-      "2 Knoblauchzehen",
       "1 TL Paprika",
       "1 Schuss Zitronensaft",
+      "Kräuteröl",
       "Salz",
       "Pfeffer"
     ],
     "recipeInstructions": [
-      { "@type": "HowToStep", "text": "Hähnchen anbraten." },
-      { "@type": "HowToStep", "text": "Knoblauch dazugeben, kurz mitbraten." },
+      { "@type": "HowToStep", "text": "Hähnchen salzen/pfeffern, in Kräuteröl scharf anbraten." },
+      { "@type": "HowToStep", "text": "Knoblauch fein hacken/pressen, kurz mitbraten." },
       { "@type": "HowToStep", "text": "Mit Zitronensaft ablöschen." },
-      { "@type": "HowToStep", "text": "Sahne und Parmesan einrühren, abschmecken." }
+      { "@type": "HowToStep", "text": "Sahne zugeben, Parmesan einrühren, kurz köcheln lassen." },
+      { "@type": "HowToStep", "text": "Mit Paprika abschmecken, servieren." }
     ]
   }
   </script>
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --line: rgba(255,255,255,.12);
+      --accent: #8be9fd;
+      --accent2:#bd93f9;
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 10%, rgba(139,233,253,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(189,147,249,.16), transparent 55%),
+        radial-gradient(900px 700px at 40% 100%, rgba(80,250,123,.10), transparent 55%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:var(--accent)}
+    .wrap{max-width: var(--max); margin: 0 auto; padding: 28px 18px 64px;}
+    header{
+      display:flex; gap:16px; align-items:flex-start; justify-content:space-between;
+      margin-bottom: 18px;
+    }
+    .title{
+      display:flex; flex-direction:column; gap:8px;
+    }
+    h1{margin:0; font-size: clamp(28px, 4vw, 44px); letter-spacing:-.02em;}
+    .sub{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      padding: 6px 10px;
+      border-radius: 999px;
+      display:inline-flex; gap:8px; align-items:center;
+    }
+    .hint{
+      font-size: 12px;
+      color: var(--muted);
+      border:1px dashed var(--line);
+      background: rgba(255,255,255,.03);
+      padding: 10px 12px;
+      border-radius: 12px;
+      max-width: 340px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 860px){
+      header{flex-direction:column}
+      .hint{max-width: none}
+      .grid{grid-template-columns: 1fr}
+    }
+    .card{
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card h2{
+      margin:0;
+      font-size: 16px;
+      color: rgba(255,255,255,.88);
+      letter-spacing:.02em;
+    }
+    .card .hd{
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      display:flex; align-items:center; justify-content:space-between; gap: 10px;
+      background: rgba(255,255,255,.02);
+    }
+    .card .bd{padding: 14px 16px;}
+    ul,ol{margin: 10px 0 0; padding-left: 20px;}
+    li{margin: 6px 0;}
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 18px;
+    }
+    @media (max-width: 520px){ .twoCol{grid-template-columns: 1fr;} }
+    .meta{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    @media (max-width: 520px){ .meta{grid-template-columns:1fr;} }
+    .meta .box{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .mono{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,.70);
+    }
+    footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    }
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      appearance:none; border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-size: 13px;
+      text-decoration:none;
+    }
+    .btn:hover{background: rgba(255,255,255,.08)}
+    .kicker{
+      background: linear-gradient(90deg, rgba(139,233,253,.18), rgba(189,147,249,.16));
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.82);
+      padding: 6px 10px;
+      border-radius: 999px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width: fit-content;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Hähnchen in Parmesan-Sahnesauce</h1>
-  <p>Diese Seite ist nur fürs Bring!-Import-Scanning gedacht.</p>
+  <main class="wrap">
+    <header>
+      <div class="title">
+        <div class="kicker">🍳 Privat-Rezept</div>
+        <h1>Hähnchen–Knoblauch–Parmesan</h1>
+
+        <div class="sub">
+          <span class="pill">⏱️ 20–25 min</span>
+          <span class="pill">🍽️ 2 Portionen</span>
+          <span class="pill">🔥 Pfanne</span>
+        </div>
+
+        <div class="meta">
+          <div class="box"><strong>Passt gut zu:</strong><br>Reis, Pasta, Ofengemüse</div>
+          <div class="box"><strong>Notiz:</strong><br>Zitronensaft erst am Ende, damit’s frisch bleibt.</div>
+        </div>
+      </div>
+
+      <div class="hint">
+        <strong>Hinweis:</strong> Diese Seite ist für mich (und Bring!) — Bring! importiert nur die Zutaten,
+        die Zubereitung bleibt hier als Link sichtbar.
+        <div style="margin-top:8px" class="mono">slug: haehnchen-knoblauch-parmesan</div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="hd">
+          <h2>🧾 Zutaten</h2>
+          <span class="mono">1 Zeile = 1 Zutat</span>
+        </div>
+        <div class="bd">
+          <div class="twoCol">
+            <ul>
+              <li>2 Hähnchenbrust</li>
+              <li>2 Knoblauchzehen</li>
+              <li>200 ml Sahne</li>
+              <li>80 g Parmesan</li>
+            </ul>
+            <ul>
+              <li>1 TL Paprika</li>
+              <li>1 Schuss Zitronensaft</li>
+              <li>Kräuteröl</li>
+              <li>Salz &amp; Pfeffer</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="hd">
+          <h2>👨‍🍳 Zubereitung</h2>
+          <span class="mono">kurz &amp; klar</span>
+        </div>
+        <div class="bd">
+          <ol>
+            <li>Hähnchen salzen/pfeffern, in Kräuteröl scharf anbraten.</li>
+            <li>Knoblauch fein hacken/pressen, kurz mitbraten.</li>
+            <li>Mit Zitronensaft ablöschen.</li>
+            <li>Sahne zugeben, Parmesan einrühren, kurz köcheln lassen.</li>
+            <li>Mit Paprika abschmecken, servieren.</li>
+          </ol>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <div class="mono">Tipp: Wenn Bring! mal nicht scannt, zuerst den Integration-Check probieren.</div>
+      <div class="btnrow">
+        <a class="btn" href="../">← zurück</a>
+        <a class="btn" href="https://www.getbring.com/en/integration-check" target="_blank" rel="noreferrer">Bring Integration-Check</a>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
