@@ -33,10 +33,11 @@ HTML_TEMPLATE = """<!doctype html>
     <h1>{title}</h1>
     <div class="sub">{meta}</div>
 
-    <div class="btnrow">
-      <a class="btn" href="{bring_link}">🛒 In Bring! importieren</a>
-      <a class="btn" href="../">← zurück</a>
-    </div>
+  <div class="btnrow">
+    <a class="btn mobile-only" href="{bring_link}">🛒 In Bring! importieren</a>
+    <span class="btn desktop-only">📱 Am iPhone öffnen, dann importieren</span>
+    <a class="btn" href="../">← zurück</a>
+  </div>
 
     {hero_img}
 
