@@ -2,10 +2,13 @@
 from __future__ import annotations
 
 import json
+import urllib.parse
 from pathlib import Path
 from html import escape
 
-REPO_PAGES_BASE = "https://Sabsx.github.io/bring-recipes"  # <- ändern!
+# ✅ HIER anpassen:
+# Beispiel: https://maxmustermann.github.io/bring-recipes
+REPO_PAGES_BASE = "https://Sabsx.github.io/bring-recipes"
 
 ROOT = Path(__file__).resolve().parents[1]
 RECIPES_DIR = ROOT / "recipes"
@@ -30,6 +33,11 @@ HTML_TEMPLATE = """<!doctype html>
     <h1>{title}</h1>
     <div class="sub">{meta}</div>
 
+    <div class="btnrow">
+      <a class="btn" href="{bring_link}">🛒 In Bring! importieren</a>
+      <a class="btn" href="../">← zurück</a>
+    </div>
+
     {hero_img}
 
     <section class="grid">
@@ -53,7 +61,8 @@ HTML_TEMPLATE = """<!doctype html>
     </section>
 
     <footer>
-      <a href="../">← zurück</a>
+      <span class="muted">Import-Link:</span>
+      <a class="muted" href="{bring_link}">{bring_link}</a>
     </footer>
   </main>
 </body>
@@ -81,6 +90,10 @@ INDEX_TEMPLATE = """<!doctype html>
         </ul>
       </div>
     </section>
+
+    <footer>
+      <span class="muted">Tipp:</span> Öffne ein Rezept und tippe auf <strong>„In Bring! importieren“</strong>.
+    </footer>
   </main>
 </body>
 </html>
@@ -90,10 +103,9 @@ def clean_none(d: dict) -> dict:
     return {k: v for k, v in d.items() if v is not None and v != ""}
 
 def load_recipes() -> list[dict]:
-    out = []
+    out: list[dict] = []
     for p in sorted(RECIPES_DIR.glob("*.json")):
         data = json.loads(p.read_text(encoding="utf-8"))
-        # basic validation
         for key in ("slug", "name", "ingredients", "instructions"):
             if key not in data:
                 raise ValueError(f"{p}: missing '{key}'")
@@ -105,7 +117,15 @@ def build_recipe_page(r: dict) -> None:
     title = r["name"]
     desc = f"Privates Rezept: {title}"
 
-    # absolute image url for Bring JSON-LD
+    # ✅ Bring Deeplink (öffnet Bring direkt)
+    recipe_url = f"{REPO_PAGES_BASE}/{slug}/"
+    encoded_url = urllib.parse.quote(recipe_url, safe="")
+    bring_link = (
+        "https://api.getbring.com/rest/bringrecipes/deeplink"
+        f"?url={encoded_url}&source=web"
+    )
+
+    # absolute image url for JSON-LD (Bring Bild)
     image_url = None
     if r.get("image_file"):
         image_url = f"{REPO_PAGES_BASE}/{ASSETS_IMAGES}/{r['image_file']}"
@@ -114,7 +134,7 @@ def build_recipe_page(r: dict) -> None:
         "@context": "https://schema.org",
         "@type": "Recipe",
         "name": title,
-        "image": [image_url] if image_url else None,
+        "image": image_url if image_url else None,  # string statt array (robuster)
         "recipeYield": r.get("yield"),
         "recipeIngredient": r["ingredients"],
         "recipeInstructions": [{"@type": "HowToStep", "text": t} for t in r["instructions"]],
@@ -125,7 +145,7 @@ def build_recipe_page(r: dict) -> None:
     ingredients_html = "\n".join(f"            <li>{escape(x)}</li>" for x in r["ingredients"])
     instructions_html = "\n".join(f"            <li>{escape(x)}</li>" for x in r["instructions"])
 
-    meta_parts = []
+    meta_parts: list[str] = []
     if r.get("yield"):
         meta_parts.append(f"🍽️ {r['yield']}")
     if r.get("time"):
@@ -144,6 +164,7 @@ def build_recipe_page(r: dict) -> None:
         jsonld=jsonld,
         ingredients_html=ingredients_html,
         instructions_html=instructions_html,
+        bring_link=bring_link,
     )
 
     out_dir = DOCS_DIR / slug
