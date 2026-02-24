@@ -62,8 +62,7 @@ HTML_TEMPLATE = """<!doctype html>
     </section>
 
     <footer>
-      <span class="muted">Import-Link:</span>
-      <a class="muted" href="{bring_link}">{bring_link}</a>
+      <span class="muted">Privates Rezept</span>
     </footer>
   </main>
 </body>
