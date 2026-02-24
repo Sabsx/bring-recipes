@@ -34,8 +34,7 @@ HTML_TEMPLATE = """<!doctype html>
     <div class="sub">{meta}</div>
 
   <div class="btnrow">
-    <a class="btn mobile-only" href="{bring_link}">🛒 In Bring! importieren</a>
-    <span class="btn desktop-only">📱 Am iPhone öffnen, dann importieren</span>
+    <a class="btn" href="{bring_link}">🛒 In Bring! importieren</a>
     <a class="btn" href="../">← zurück</a>
   </div>
 
@@ -62,7 +61,7 @@ HTML_TEMPLATE = """<!doctype html>
     </section>
 
     <footer>
-      <span class="muted">Privates Rezept</span>
+      <a class="btn" href="../">← zurück</a>
     </footer>
   </main>
 </body>
