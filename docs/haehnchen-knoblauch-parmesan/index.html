@@ -1,79 +1,96 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Hähnchen-Knoblauch-Parmesan</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hähnchen–Knoblauch–Parmesan</title>
+  <meta name="description" content="Privates Rezept – Bring!-Import kompatibel">
 
-<link rel="stylesheet" href="../assets/style.css">
+  <!-- ✅ Bring! Import: Schema.org Recipe JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    "name": "Hähnchen–Knoblauch–Parmesan",
 
-<!-- Bring! Import -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Recipe",
-  "name":"Hähnchen-Knoblauch-Parmesan",
-  "recipeYield":"2 Portionen",
-  "recipeIngredient":[
-    "2 Hähnchenbrust",
-    "2 Knoblauchzehen",
-    "200 ml Sahne",
-    "80 g Parmesan",
-    "1 TL Paprika",
-    "Salz",
-    "Pfeffer"
-  ],
-  "recipeInstructions":[
-    {"@type":"HowToStep","text":"Hähnchen anbraten."},
-    {"@type":"HowToStep","text":"Knoblauch hinzufügen."},
-    {"@type":"HowToStep","text":"Sahne und Parmesan einrühren."},
-    {"@type":"HowToStep","text":"Abschmecken und servieren."}
-  ]
-}
-</script>
+    "image": [
+      "https://DEINUSERNAME.github.io/bring-recipes/assets/images/haehnchen-knoblauch-parmesan.jpg"
+    ],
 
+    "recipeYield": "4 Portionen",
+    "recipeIngredient": [
+      "2 Hähnchenbrust",
+      "2 Knoblauchzehen",
+      "200 ml Sahne",
+      "80 g Parmesan",
+      "1 TL Paprika",
+      "1 Schuss Zitronensaft",
+      "Kräuteröl",
+      "Salz",
+      "Pfeffer"
+    ],
+    "recipeInstructions": [
+      { "@type": "HowToStep", "text": "Hähnchen salzen/pfeffern und in Kräuteröl scharf anbraten." },
+      { "@type": "HowToStep", "text": "Knoblauch fein hacken/pressen und kurz mitbraten." },
+      { "@type": "HowToStep", "text": "Mit Zitronensaft ablöschen." },
+      { "@type": "HowToStep", "text": "Sahne zugeben, Parmesan einrühren und kurz köcheln lassen." },
+      { "@type": "HowToStep", "text": "Mit Paprika abschmecken und servieren." }
+    ]
+  }
+  </script>
+
+  <!-- Optional: Seite hübsch (hat keinen Einfluss auf Import) -->
+  <link rel="stylesheet" href="../assets/style.css" />
 </head>
 
 <body>
-<main class="wrap">
+  <main class="wrap">
 
-  <h1>Hähnchen-Knoblauch-Parmesan</h1>
-  <div class="sub">Privates Rezept • Bring! Import kompatibel</div>
+    <h1>Hähnchen–Knoblauch–Parmesan</h1>
+    <div class="sub">Privates Rezept • Bring! nutzt diese Seite als Link + (optional) Bildquelle</div>
 
-  <section class="grid">
+    <!-- Sichtbares Bild auf der Seite (optional, aber praktisch) -->
+    <img
+      class="hero"
+      src="../assets/images/haehnchen-knoblauch-parmesan.jpg"
+      alt="Hähnchen–Knoblauch–Parmesan"
+    />
 
-    <article class="card">
-      <div class="hd">🧾 Zutaten</div>
-      <div class="bd">
-        <ul>
-          <li>2 Hähnchenbrust</li>
-          <li>2 Knoblauchzehen</li>
-          <li>200 ml Sahne</li>
-          <li>80 g Parmesan</li>
-          <li>1 TL Paprika</li>
-          <li>Salz & Pfeffer</li>
-        </ul>
-      </div>
-    </article>
+    <section class="grid">
+      <article class="card">
+        <div class="hd">🧾 Zutaten</div>
+        <div class="bd">
+          <ul>
+            <li>2 Hähnchenbrust</li>
+            <li>2 Knoblauchzehen</li>
+            <li>200 ml Sahne</li>
+            <li>80 g Parmesan</li>
+            <li>1 TL Paprika</li>
+            <li>1 Schuss Zitronensaft</li>
+            <li>Kräuteröl</li>
+            <li>Salz &amp; Pfeffer</li>
+          </ul>
+        </div>
+      </article>
 
-    <article class="card">
-      <div class="hd">👨‍🍳 Zubereitung</div>
-      <div class="bd">
-        <ol>
-          <li>Hähnchen anbraten.</li>
-          <li>Knoblauch kurz mitbraten.</li>
-          <li>Sahne + Parmesan einrühren.</li>
-          <li>Würzen und servieren.</li>
-        </ol>
-      </div>
-    </article>
+      <article class="card">
+        <div class="hd">👨‍🍳 Zubereitung</div>
+        <div class="bd">
+          <ol>
+            <li>Hähnchen salzen/pfeffern und in Kräuteröl scharf anbraten.</li>
+            <li>Knoblauch fein hacken/pressen und kurz mitbraten.</li>
+            <li>Mit Zitronensaft ablöschen.</li>
+            <li>Sahne zugeben, Parmesan einrühren und kurz köcheln lassen.</li>
+            <li>Mit Paprika abschmecken und servieren.</li>
+          </ol>
+        </div>
+      </article>
+    </section>
 
-  </section>
+    <footer>
+      Tipp: Wenn Bring! das Foto nicht übernimmt, prüfe ob die Bild-URL direkt im Browser lädt (ohne Login).
+    </footer>
 
-  <footer>
-    Diese Seite dient als Rezept-Link für Bring!.
-  </footer>
-
-</main>
+  </main>
 </body>
 </html>
