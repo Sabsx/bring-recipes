@@ -52,13 +52,6 @@ a{color:inherit}
   box-shadow:var(--shadow);
 }
 
-.mobile-only { display: inline-block; }
-.desktop-only { display: none; }
-
-@media (min-width: 900px){
-  .mobile-only { display: none; }
-  .desktop-only { display: inline-block; cursor: default; }
-}
 .btnrow{
   display:flex;
   gap:10px;
